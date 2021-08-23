@@ -626,13 +626,14 @@ export const allInvestments = investments.map((investment) => {
 
   reports.map((report) => {
     if (investment.id === report.investmentId) {
-      const monthName = getMonthName(report.month);
+      const { id, month, year, value } = report;
+      const monthName = getMonthName(month);
       completeInvestment.reports.push({
-        reportId: report.id,
-        month: report.month,
+        reportId: id,
+        month: month,
         monthName,
-        year: report.year,
-        value: report.value,
+        year: year,
+        value: value,
       });
     }
   });
